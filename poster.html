@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driven Well AI Poster - Website Theme</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        
+        .poster {
+            width: 841px;
+            height: 1189px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Decorative elements - subtle red accents */
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(203, 45, 62, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .poster::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(203, 45, 62, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header - matches website style */
+        .header {
+            text-align: center;
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 4px solid #cb2d3e;
+            background: linear-gradient(to bottom, rgba(203, 45, 62, 0.03) 0%, transparent 100%);
+            padding-top: 12px;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2d2d2d;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .logo-underline {
+            width: 400px;
+            height: 4px;
+            background: #cb2d3e;
+            margin: 8px auto;
+        }
+        
+        .tagline {
+            font-size: 17px;
+            color: #4a4a4a;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        
+        .team {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 7px;
+            font-weight: 600;
+        }
+        
+        .team-names {
+            font-size: 10px;
+            color: #888888;
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+        
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        
+        .section {
+            background: #fafafa;
+            border: 2px solid #e8e8e8;
+            border-left: 5px solid #cb2d3e;
+            border-radius: 10px;
+            padding: 16px;
+        }
+        
+        .section-title {
+            font-size: 19px;
+            color: #cb2d3e;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-content {
+            color: #4a4a4a;
+            font-size: 10.5px;
+            line-height: 1.6;
+        }
+        
+        .section-content strong {
+            color: #cb2d3e;
+            font-weight: 700;
+        }
+        
+        .section-content p {
+            margin-bottom: 8px;
+        }
+        
+        /* Problem Section */
+        .problem-highlight {
+            background: rgba(203, 45, 62, 0.08);
+            border-left: 4px solid #cb2d3e;
+            padding: 9px 11px;
+            margin: 9px 0;
+            border-radius: 6px;
+        }
+        
+        .stat {
+            font-size: 26px;
+            font-weight: 900;
+            color: #cb2d3e;
+            display: block;
+            margin: 3px 0;
+        }
+        
+        /* Solution Section */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            margin-top: 10px;
+        }
+        
+        .feature-item {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 7px;
+            border: 2px solid #f0f0f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .feature-title {
+            color: #cb2d3e;
+            font-weight: 700;
+            font-size: 9.5px;
+            margin-bottom: 4px;
+        }
+        
+        .feature-desc {
+            color: #666666;
+            font-size: 8.5px;
+            line-height: 1.4;
+        }
+        
+        /* Design Process */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 7px;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px 7px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 2px solid #f0f0f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #cb2d3e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 900;
+            margin: 0 auto 7px;
+        }
+        
+        .step-title {
+            color: #cb2d3e;
+            font-weight: 700;
+            font-size: 9.5px;
+            margin-bottom: 4px;
+        }
+        
+        .step-desc {
+            color: #666666;
+            font-size: 8px;
+            line-height: 1.3;
+        }
+        
+        /* Testing Results */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
+            margin-top: 10px;
+        }
+        
+        .result-box {
+            background: #ffffff;
+            padding: 11px;
+            border-radius: 7px;
+            border: 2px solid #f0f0f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .result-label {
+            color: #cb2d3e;
+            font-weight: 700;
+            font-size: 9.5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .result-text {
+            color: #4a4a4a;
+            font-size: 8.5px;
+            line-height: 1.5;
+        }
+        
+        /* Key Outcomes */
+        .outcomes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-top: 10px;
+        }
+        
+        .outcome-card {
+            background: rgba(203, 45, 62, 0.06);
+            padding: 12px 9px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid rgba(203, 45, 62, 0.2);
+        }
+        
+        .outcome-icon {
+            font-size: 26px;
+            margin-bottom: 7px;
+        }
+        
+        .outcome-title {
+            color: #cb2d3e;
+            font-weight: 700;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .outcome-desc {
+            color: #666666;
+            font-size: 8px;
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 15px;
+            padding-top: 14px;
+            border-top: 3px solid #cb2d3e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to top, rgba(203, 45, 62, 0.03) 0%, transparent 100%);
+            padding-bottom: 5px;
+        }
+        
+        .qr-section {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .qr-item {
+            text-align: center;
+        }
+        
+        .qr-box {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            border: 3px solid #cb2d3e;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .qr-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .qr-placeholder {
+            font-size: 8px;
+            color: #2d2d2d;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .qr-label {
+            color: #cb2d3e;
+            font-weight: 700;
+            font-size: 10px;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-title {
+            color: #cb2d3e;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-detail {
+            color: #666666;
+            font-size: 10px;
+            line-height: 1.6;
+        }
+        
+        /* Full width section */
+        .full-section {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="content">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo">DRIVEN WELL AI</div>
+                <div class="logo-underline"></div>
+                <div class="tagline">AI Driving Monitoring System with Posture and Fatigue Management</div>
+                <div class="team">HCI 3-6 | CSC3024 Human Computer Interaction</div>
+                <div class="team-names">Ng Jan Hwan • Ng Wen Chao • Kong Yao • Samuel Lee Zhi Jian • Ng Soon Teck • Fong Wei Tze</div>
+            </div>
+            
+            <!-- Main Grid -->
+            <div class="main-grid">
+                <!-- Problem -->
+                <div class="section">
+                    <div class="section-title">The Problem</div>
+                    <div class="section-content">
+                        <p>Drivers frequently experience <strong>discomfort, lower back pain, and fatigue</strong> due to poor driving ergonomics and prolonged sitting.</p>
+                        
+                        <div class="problem-highlight">
+                            <span class="stat">36.3M</span>
+                            <p style="color: #666666; margin-top: 2px; font-size: 9.5px;">registered vehicles in Malaysia (2023)</p>
+                        </div>
+                        
+                        <p><strong>Impact:</strong> Reduced quality of life, increased absenteeism, and higher risk of accidents.</p>
+                        
+                        <p>Despite ergonomic vehicle features, <strong>discomfort accumulates</strong> over time due to poor driving habits.</p>
+                    </div>
+                </div>
+                
+                <!-- Solution -->
+                <div class="section">
+                    <div class="section-title">AI-Powered Solution</div>
+                    <div class="section-content">
+                        <p>An <strong>in-vehicle AI driver ergonomics assistant</strong> that provides adaptive feedback for improved comfort and safety.</p>
+                        
+                        <div class="features">
+                            <div class="feature-item">
+                                <div class="feature-title">🎯 Posture Detection</div>
+                                <div class="feature-desc">Seat & steering sensors with in-car cameras</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-title">😴 Fatigue Monitoring</div>
+                                <div class="feature-desc">Eye tracking and body movement analysis</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-title">💡 Real-Time Alerts</div>
+                                <div class="feature-desc">Infotainment & instrument cluster feedback</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-title">🔧 Ergonomic Guidance</div>
+                                <div class="feature-desc">Posture corrections & break suggestions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Process -->
+                <div class="section full-section">
+                    <div class="section-title">Iterative Design Process</div>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Initial Prototype</div>
+                            <div class="step-desc">Paper sketches for interfaces</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Heuristic Evaluation</div>
+                            <div class="step-desc">3 evaluators identified issues</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Design Revision</div>
+                            <div class="step-desc">Added steering controls & indicators</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Usability Testing</div>
+                            <div class="step-desc">3 participants validated changes</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Digital Mock-up</div>
+                            <div class="step-desc">Final high-fidelity prototype</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Testing Results -->
+                <div class="section">
+                    <div class="section-title">Testing Results</div>
+                    <div class="results-grid">
+                        <div class="result-box">
+                            <div class="result-label">Visibility</div>
+                            <div class="result-text">Increased font size for driving time and fatigue indicators based on user feedback</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-label">Safety</div>
+                            <div class="result-text">Added steering wheel button to dismiss alerts, reducing distraction</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-label">System Clarity</div>
+                            <div class="result-text">Implemented posture capture messages and correction confirmations</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-label">User Validation</div>
+                            <div class="result-text">Participants praised automatic detection and minimalist interface design</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Outcomes -->
+                <div class="section">
+                    <div class="section-title">Key Outcomes & Impact</div>
+                    <div class="outcomes">
+                        <div class="outcome-card">
+                            <div class="outcome-icon">🛡️</div>
+                            <div class="outcome-title">Enhanced Safety</div>
+                            <div class="outcome-desc">Reduces fatigue-related accidents through proactive monitoring</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-icon">😌</div>
+                            <div class="outcome-title">Improved Comfort</div>
+                            <div class="outcome-desc">Real-time posture feedback prevents long-term discomfort</div>
+                        </div>
+                        <div class="outcome-card">
+                            <div class="outcome-icon">💪</div>
+                            <div class="outcome-title">Health Benefits</div>
+                            <div class="outcome-desc">Promotes musculoskeletal health for long-distance drivers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <div class="qr-section">
+                    <div class="qr-item">
+                        <div class="qr-box">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAACS0lEQVR4Xu2YQY7jIBBF+VxkxSG4BLfwEjiEV+YUpBdWPqTJKOPxpKdTI1WSp/xFVAhhqfhVhv9hRv74z/8fh14t5Gbu0hH0g0KuB70jgm73v5qqVG7CQI+7IUVQB/+dCJh4DQb6KpNnUEf/HQ1YJ7lBH32VkruhK/6jCS7TzfSZl9qkCT5Aqk0/0UdSvEk/0gdK6IYZ/CcTXKWb6Xe6iX5QrXvST/Qx16pv0k90UtAN+nv3+wN9oMa9SR/poz/Sd9M/9KHeoffef48zn+tV+qce+4neCn+gj1S7m/SRvtMH+kA17036SD/oVfr7nH6md/TfJ37Pd6fhP5j4m0+/0G/063P6jT76bz7+rt/mE6/eZz7/H0x8J7r6NJ/evbO+pxv+e+fnf+lHeuiH/nuh/+K/oWsvdJO/P/+vX+nvz/+fz/+fz//nv9On+iff8B/P+dn3+fRs/lufTy/mU/qN/2LiD/6D6vfJJ17o2Ufe1+fxpf98O/5+o/cWW/Z7D38/o28f/wP/5b//cOJv+lS/+gx98R/0qg96pAe9+v7L/s/+u/wv/0gv/H90pr/pUt/pX/qH/oXefKZXn9Hv/Z+/t5/Tv3Sh/+jv/U8+Q+88o3u96i3/mV76T+hDH+n/+TiP+oVenflQn/unn/NP/EK/zk8++Rz6+nz6m470q09ym//l8/mH/4x++7h++hg/q//gv//w+PH8D/v6A/3nD/38A33yj/4x3vqP+fY85l8g5VqKI0gSKQAAAABJRU5ErkJggg==" alt="Website QR Code">
+                        </div>
+                        <div class="qr-label">Visit Website</div>
+                    </div>
+                    <div class="qr-item">
+                        <div class="qr-box">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAACS0lEQVR4Xu2YQY7jIBBF+VxkxSG4BLfwEjiEV+YUpBdWPqTJKOPxpKdTI1WSp/xFVAhhqfhVhv9hRv74z/8fh14t5Gbu0hH0g0KuB70jgm73v5qqVG7CQI+7IUVQB/+dCJh4DQb6KpNnUEf/HQ1YJ7lBH32VkruhK/6jCS7TzfSZl9qkCT5Aqk0/0UdSvEk/0gdK6IYZ/CcTXKWb6Xe6iX5QrXvST/Qx16pv0k90UtAN+nv3+wN9oMa9SR/poz/Sd9M/9KHeoffef48zn+tV+qce+4neCn+gj1S7m/SRvtMH+kA17036SD/oVfr7nH6md/TfJ37Pd6fhP5j4m0+/0G/063P6jT76bz7+rt/mE6/eZz7/H0x8J7r6NJ/evbO+pxv+e+fnf+lHeuiH/nuh/+K/oWsvdJO/P/+vX+nvz/+fz/+fz//nv9On+iff8B/P+dn3+fRs/lufTy/mU/qN/2LiD/6D6vfJJ17o2Ufe1+fxpf98O/5+o/cWW/Z7D38/o28f/wP/5b//cOJv+lS/+gx98R/0qg96pAe9+v7L/s/+u/wv/0gv/H90pr/pUt/pX/qH/oXefKZXn9Hv/Z+/t5/Tv3Sh/+jv/U8+Q+88o3u96i3/mV76T+hDH+n/+TiP+oVenflQn/unn/NP/EK/zk8++Rz6+nz6m470q09ym//l8/mH/4x++7h++hg/q//gv//w+PH8D/v6A/3nD/38A33yj/4x3vqP+fY85l8g5VqKI0gSKQAAAABJRU5ErkJggg==" alt="Video QR Code">
+                        </div>
+                        <div class="qr-label">Watch Video</div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-title">Learn More</div>
+                    <div class="contact-detail">
+                        🌐 sites.google.com/view/hci3-6<br>
+                        📧 CSC3024 Human Computer Interaction<br>
+                        🎓 Sunway University
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
